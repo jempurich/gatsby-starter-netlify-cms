@@ -6,6 +6,7 @@ import Link from 'gatsby-link'
 import Content, { HTMLContent } from '../components/Content'
 
 export const BlogPostTemplate = ({
+  image,
   content,
   contentComponent,
   description,
@@ -24,6 +25,10 @@ export const BlogPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
+            <img
+              src={image.image}
+              alt={image.alt}
+            />
             <p>{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
@@ -86,6 +91,7 @@ export const pageQuery = graphql`
         title
         description
         tags
+        image
       }
     }
   }
